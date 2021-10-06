@@ -4,7 +4,14 @@
   "description": "Simple Hacker News Reader",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node build/bundle.js",
+    "build:prod": "rm -rf build && rm -rf public && webpack  --config webpack.server.js && webpack -p --config webpack.client.prod.js --mode production",
+    "webpack-prod": "webpack -p --progress --config webpack.client.prod.js --mode production",
+    "dev": "npm run build-server && npm-run-all --parallel dev:*",
+    "build-server": "webpack --config webpack.server.js",
+    "dev:build-server": "webpack --config webpack.server.js --watch",
+    "dev:build-client": "webpack --config webpack.client.js --watch",
+    "dev:server": "nodemon --watch build --exec \"node build/bundle.js\""
   },
   "repository": {
     "type": "git",
@@ -19,5 +26,42 @@
   "bugs": {
     "url": "https://github.com/seva32/hacker-news-challenge/issues"
   },
-  "homepage": "https://github.com/seva32/hacker-news-challenge#readme"
+  "homepage": "https://github.com/seva32/hacker-news-challenge#readme",
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "concurrently": "^6.3.0",
+    "compression-webpack-plugin": "^4.0.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.13",
+    "npm-run-all": "^4.1.5",
+    "r": "^0.0.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.3.0",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack": "^4.43.0",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^4.2.2",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.3",
+    "@babel/preset-env": "^7.10.3",
+    "@babel/preset-react": "^7.10.1",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
+    "babel-minify-webpack-plugin": "^0.3.1",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-flowtype": "^2.50.3",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "^4.0.4",
+    "prettier": "^2.0.5",
+    "webpack-cli": "^3.3.12"
+  }
 }

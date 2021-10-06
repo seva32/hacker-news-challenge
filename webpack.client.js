@@ -1,16 +1,16 @@
-const path = require("path");
-const merge = require("webpack-merge");
-const baseConfig = require("./webpack.base");
+const path = require('path');
+const merge = require('webpack-merge');
+const baseConfig = require('./webpack.base');
 
 const config = {
-  mode: "development",
-  entry: "./src/client/client.js",
+  mode: 'development',
+  entry: './src/client/index.js',
 
   output: {
-    filename: "bundle.js",
-    path: path.resolve(__dirname, "public"),
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'public'),
   },
-  devtool: "inline-source-map",
+  devtool: 'inline-source-map',
 };
 
 module.exports = merge(baseConfig, config);
