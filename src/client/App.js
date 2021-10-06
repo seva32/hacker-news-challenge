@@ -18,13 +18,13 @@ const App = ({ route }) => {
 };
 
 App.propTypes = {
-  route: PropTypes.objectOf(PropTypes.any),
+  route: PropTypes.objectOf(PropTypes.any)
 };
 
 App.defaultProps = {
-  route: null,
+  route: null
 };
 
 export default {
-  component: App,
+  component: App
 };

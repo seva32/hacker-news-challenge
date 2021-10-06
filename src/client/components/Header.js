@@ -13,7 +13,6 @@ const Header = () => {
   const stylesOpen = {
     transform: 'translateX(0px)',
   };
-
   return (
     <div className="navbar-fixed">
       <nav className="red">

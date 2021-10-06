@@ -1,6 +1,6 @@
-import HomePage from './screens/HomePage';
-import NotFoundPage from './screens/NotFoundPage';
-import ArticleListPage from './screens/ArticleListPage';
+import HomePage from './pages/HomePage';
+import NotFoundPage from './pages/NotFoundPage';
+import ArticleListPage from './pages/ArticleListPage';
 import App from './App';
 
 export default [

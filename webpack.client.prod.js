@@ -31,7 +31,7 @@ const config = {
       }),
     ],
   },
-  entry: './src/client/index.js',
+  entry: './src/client/client.js',
 
   output: {
     filename: 'bundle.js',
