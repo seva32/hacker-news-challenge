@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const merge = require('webpack-merge');
+const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const baseConfig = require('./webpack.base');
@@ -16,6 +17,31 @@ const config = {
     chunkModules: true,
     modules: true,
     children: true,
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: ExtractCssChunks.loader,
+            options: {
+              hot: true,
+              modules: true,
+            },
+          },
+          {
+            loader: 'css-loader',
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              ident: 'postcss',
+            },
+          },
+        ],
+      },
+    ],
   },
   optimization: {
     minimizer: [
@@ -39,6 +65,10 @@ const config = {
   },
   devtool: 'inline-source-map',
   plugins: [
+    new ExtractCssChunks({
+      filename: '[name].[contenthash].css',
+      chunkFilename: '[name]-[hash:8].css',
+    }),
     new CompressionPlugin(),
     new webpack.DefinePlugin({
       'process.env': {

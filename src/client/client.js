@@ -13,6 +13,8 @@ import { renderRoutes } from 'react-router-config';
 import reducers from './reducers';
 import Routes from './Routes';
 
+import './global.css';
+
 const state = window.__PRELOADED_STATE__;
 delete window.__PRELOADED_STATE__;
 
