@@ -26,7 +26,6 @@ const config = {
           {
             loader: ExtractCssChunks.loader,
             options: {
-              hot: true,
               modules: true,
             },
           },
