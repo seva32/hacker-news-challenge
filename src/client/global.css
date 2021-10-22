@@ -36,3 +36,7 @@
 .level-item {
   justify-content: center;
 }
+
+.min-height-90 {
+  min-height: 90vh;
+}

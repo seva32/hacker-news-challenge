@@ -70,7 +70,7 @@ const HomePage = (props) => {
           <h3>Popular Articles</h3>
         </div>
         <div className="divider" />
-        <div className="section" style={{ minHeight: '90vh' }}>
+        <div className="section min-height-90">
           <div className="row">{renderArticles()}</div>
         </div>
       </div>
