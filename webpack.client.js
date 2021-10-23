@@ -1,6 +1,6 @@
 const path = require('path');
 const merge = require('webpack-merge');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
 const baseConfig = require('./webpack.base');
 
 const config = {
@@ -17,7 +17,7 @@ const config = {
         test: /\.css$/,
         use: [
           {
-            loader: MiniCssExtractPlugin.loader,
+            loader: ExtractCssChunks.loader,
             options: {
               hmr: process.env.NODE_ENV === 'development',
               reloadAll: true,
@@ -43,9 +43,9 @@ const config = {
   },
   devtool: 'inline-source-map',
   plugins: [
-    new MiniCssExtractPlugin({
+    new ExtractCssChunks({
       filename: '[name].css',
-      chunkFilename: '[name].css',
+      chunkFilename: '[id].css',
     }),
   ],
 };
