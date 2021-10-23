@@ -13,7 +13,7 @@ const config = {
   externals: [webpackNodeExternals()],
 
   output: {
-    filename: 'bundle.js',
+    filename: 'main.js',
     path: path.resolve(__dirname, 'build'),
   },
   module: {

@@ -66,7 +66,7 @@ const config = {
   plugins: [
     new ExtractCssChunks({
       filename: '[name].[contenthash].css',
-      chunkFilename: '[name]-[hash:8].css',
+      chunkFilename: '[id]-[hash:8].css',
     }),
     new CompressionPlugin(),
     new webpack.DefinePlugin({
