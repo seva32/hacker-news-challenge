@@ -20,3 +20,13 @@ $ npm run build:prod
 
 - [React](https://reactjs.org/)
 - [Node.js](https://nodejs.org/)
+
+## Features
+
+Webpack
+
+Postcss
+
+SSR express
+
+Redux Thunk
